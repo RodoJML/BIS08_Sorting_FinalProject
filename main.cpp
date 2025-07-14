@@ -10,7 +10,7 @@ int main() {
     std::vector<int> listaNumeros;
 
     std::string integrantes[5] = {"202011770 Rodolfo Meneses Leal", 
-                                  "XXXXXXXXX Carlos Jimenez", 
+                                  "20220114317 Carlos Andrés Jiménez Sánchez", 
                                   "XXXXXXXXX Victoria ",
                                   "XXXXXXXXX Xander ",
                                   "XXXXXXXXX ABC"};
@@ -42,6 +42,10 @@ int main() {
                 break;
             case 2: 
                 break;
+			 case 3: 
+			 algoritmoSeleccion(listaNumeros,tamañoLista);
+			 			 
+                break;
             default: 
                 printf("Opción no válida. Intente de nuevo.\n");
                 continue;
@@ -61,4 +65,43 @@ std::vector<int> crearListaNumeros(int cantidad){
     for(int i = 0; i <= cantidad; i++){
 
     }
+}
+
+
+void algoritmoSeleccion(int lista[],int size){
+	
+	int valorActual;
+	int menor;
+	
+
+  for (int i = 0; i <  size; i++) {
+	 
+	  menor=i;
+	  
+	   for (int j = i+1; j <  size; j++) {
+		   
+		   if(lista[menor]>lista[j]){
+			   
+			   menor=j;
+			   
+		   }
+		   
+	   }
+	  int iteracion=lista[i];
+	  lista[i]=lista[menor];
+	  lista[menor]=iteracion;
+	  
+	
+	   
+    
+	
+	
+  }
+ cout <<  "La ordenada por algoritmo de seleccion es: " <<endl;
+ for (int i = 0; i <  size; i++) {
+      
+       cout<<lista[i]<<" ";
+       
+       
+ }
 }
