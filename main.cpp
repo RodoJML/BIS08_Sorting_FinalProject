@@ -35,7 +35,7 @@ void algoritmoSeleccion(vector<int>& lista, int size) {
         lista[menor] = iteracion;
     }
 
-    cout << "La ordenada por algoritmo de selección es: " << endl;
+    cout << "La lista  ordenada por algoritmo de selección es: " << endl;
     for (int i = 0; i < size; i++) {
         cout << lista[i] << " ";
     }
