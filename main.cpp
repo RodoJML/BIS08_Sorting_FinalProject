@@ -6,6 +6,51 @@ using namespace std;
 std::vector<int> crearListaNumeros();
 void algoritmoSeleccion(vector<int>& lista, int size);
 
+
+std::vector<int> crearListaNumeros(int cantidad){
+
+    std::vector<int> lista;
+
+    for(int i = 0; i <= cantidad; i++){
+
+    }
+}
+
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+void algoritmoSeleccion(vector<int>& lista, int size) {
+    int menor;
+    
+
+    for (int i = 0; i < size; i++) {
+        menor = i;
+
+        for (int j = i + 1; j < size; j++) {
+            if (lista[menor] > lista[j]) {
+                menor = j;
+            }
+        }
+
+        int iteracion = lista[i];
+        lista[i] = lista[menor];
+        lista[menor] = iteracion;
+    }
+
+    cout << "La lista  ordenada por algoritmo de selección es: " << endl;
+    for (int i = 0; i < size; i++) {
+        cout << lista[i] << " ";
+    }
+    cout << endl;
+}
+
+
+
+
+
+
 int main() {
 
     int opcionMenu;
@@ -46,6 +91,10 @@ int main() {
                 listaNumeros = crearListaNumeros();
                 break;
             case 2: 
+                break;
+			 case 3: 
+			 algoritmoSeleccion(listaNumeros,tamañoLista);
+			 			 
                 break;
             default: 
                 printf("Opción no válida. Intente de nuevo.");
