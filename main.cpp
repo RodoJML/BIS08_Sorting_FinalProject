@@ -1,15 +1,18 @@
 #include <iostream>
 #include <vector>
 #include <string>
+using namespace std;
+
+std::vector<int> crearListaNumeros();
+void algoritmoSeleccion(vector<int>& lista, int size);
 
 int main() {
 
     int opcionMenu;
-    int tamañoLista;
     bool exit   = false;
-    std::vector<int> listaNumeros;
+    vector<int> listaNumeros;
 
-    std::string integrantes[5] = {"202011770 Rodolfo Meneses Leal", 
+    string integrantes[5] = {"202011770 Rodolfo Meneses Leal", 
                                   "XXXXXXXXX Carlos Jimenez", 
                                   "XXXXXXXXX Victoria ",
                                   "XXXXXXXXX Xander ",
@@ -23,27 +26,29 @@ int main() {
     printf("Integrantes:                                    \n");
     
     for(int i = 0; i < (sizeof(integrantes)) / sizeof(integrantes[0]); i++){
-        printf("·%s \n", integrantes[i].c_str());
+        if(i == ((sizeof(integrantes) / sizeof(integrantes[0])) - 1))
+            printf("·%s", integrantes[i].c_str());
+        else 
+            printf("·%s \n", integrantes[i].c_str());
     }
     
     while(!exit){
-        printf("\n----------------- Menu ---------------------- \n\n");;
-        printf("1. Ingresar una lista de numeros.               \n");
-        printf("2. Aplicar Algoritmo Burbuja.                   \n");
-        printf("3. Aplicar Algoritmo Selección.                 \n");
-        printf("\nSeleccione una opcion: ");
+        printf("\n\n\n-- Menu Principal ----------------------------  \n");
+        printf("1. Crear lista de numeros.                              \n");
+        printf("2. Aplicar Algoritmo Burbuja.                           \n");
+        printf("3. Aplicar Algoritmo Selección.                         \n\n");
+        printf("Seleccione una opcion: ");
         scanf("%i", &opcionMenu);
 
         switch(opcionMenu){
-            case 1: 
-                printf("De que tamaño desea su lista de numeros: ");
-                scanf("%i", &tamañoLista);
-                listaNumeros = crearListaNumeros(tamañoLista);
+            case 1:
+                printf("Crear lista de numeros...");
+                listaNumeros = crearListaNumeros();
                 break;
             case 2: 
                 break;
             default: 
-                printf("Opción no válida. Intente de nuevo.\n");
+                printf("Opción no válida. Intente de nuevo.");
                 continue;
         }
 
@@ -54,11 +59,55 @@ int main() {
 }
 
 
-std::vector<int> crearListaNumeros(int cantidad){
+vector<int> crearListaNumeros(){
 
     std::vector<int> lista;
+    int tamañoLista;
+    int valor;
 
-    for(int i = 0; i <= cantidad; i++){
+    printf("\n\n\n-- Creando Lista -----------------------------\n");
+    printf("De que tamaño desea su lista de numeros: ");
+    scanf("%i", &tamañoLista);
+    printf("\nIngrese un valor para cada posición de la lista\n");
 
+    for(int i = 0; i < tamañoLista; i++){
+        valor = 0;
+        printf("Posicion [%i]: ", i + 1);
+        scanf("%i", &valor);
+        lista.push_back(valor);
     }
+
+    printf("\n");
+    printf("Lista Creada:");
+    for(int n : lista){
+        printf("[%i]", n);
+    }
+
+    return lista;
+}
+
+
+void algoritmoSeleccion(vector<int>& lista, int size) {
+    int menor;
+    
+
+    for (int i = 0; i < size; i++) {
+        menor = i;
+
+        for (int j = i + 1; j < size; j++) {
+            if (lista[menor] > lista[j]) {
+                menor = j;
+            }
+        }
+
+        int iteracion = lista[i];
+        lista[i] = lista[menor];
+        lista[menor] = iteracion;
+    }
+
+    cout << "La lista  ordenada por algoritmo de selección es: " << endl;
+    for (int i = 0; i < size; i++) {
+        cout << lista[i] << " ";
+    }
+    cout << endl;
 }
