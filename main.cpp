@@ -39,19 +39,24 @@ void algoritmoSeleccion(vector<int>& lista) {
 
     for (int i = 0; i < size; i++) {
         int menor = i;
+         cout <<"\n"<< i+1<< "- Comparando " <<lista[i]<<" ";
 
         // Buscar el elemento más pequeño en el resto de la lista
         for (int j = i + 1; j < size; j++) {
+	     	 cout <<  " con " <<lista[j]<< "  ";
             if (lista[j] < lista[menor]) {
+                
                 menor = j;
+                
+                
             }
         }
-
+      cout <<"\n" <<  "El menor en esta iteración es: " <<lista[menor]<< "\n";
         // Intercambiar el actual con el menor encontrado
         swap(lista[i], lista[menor]);
     }
-
-    cout << "Lista ordenada con selección:\n";
+    cout << "\n----------------------------------------\n";
+    cout << "Lista ordenada con el método de selección:\n";
     mostrarLista(lista);
 }
 
@@ -105,10 +110,10 @@ int main() {
     // Información del equipo
     string integrantes[5] = {
         "202011770 Rodolfo Meneses Leal", 
-        "20220114317  Carlos Jimenez", 
-        "XXXXXXXXX Victoria", 
+        "20220114317  Carlos Jiménez Sánchez", 
+        "XXXXXXXXX Victoria Molina Fallas", 
         "202401111719 Xander Arce Araya", 
-        "XXXXXXXXX ABC"
+        "XXXXXXXXX Geysell Rivas Barrera"
     };
 
     // Encabezado de presentación
@@ -156,9 +161,5 @@ int main() {
     }
 
     return 0;
-<<<<<<< HEAD
+
 }
-=======
-}
-}
->>>>>>> b5c6e1bff79b82f70701266ffc45557899cb2733
